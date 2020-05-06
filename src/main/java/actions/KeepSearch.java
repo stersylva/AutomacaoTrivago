@@ -14,48 +14,29 @@ public class KeepSearch extends SelectHotelTest {
     
     
 
-    public static void searchPleace() throws InterruptedException {
+    public static void searchPleace() {
         hotelPageHomeFilter = new HotelPageHomeFilter(getDriver());
-        
         Assert.assertEquals("https://www.trivago.com.br/",  getDriver().getCurrentUrl());
-        
         hotelPageHomeFilter.setSearchField("Natal");
         Assert.assertEquals("Natal", hotelPageHomeFilter.getSearchField());
-        Thread.sleep(5000);
         hotelPageHomeFilter.searchButtonClick();               
     }
     
-    public static void searchBedroom() throws InterruptedException {
+    public static void searchBedroom() {
     	hotelPageFilter = new HotelPageFilter(getDriver());
-    	
     	Assert.assertTrue("Preço/noite", hotelPageFilter.getTextPage());
-    	Thread.sleep(5000);
     	hotelPageFilter.clickBedroom();
     	hotelPageFilter.selectBedroom();
     	hotelPageFilter.order();
     	Assert.assertEquals("3", hotelPageFilter.getSelectField());
-    	Thread.sleep(19000);
     	hotelPageFilter.getHotelName();
-
-    	Thread.sleep(9000);
-    	hotelPageFilter.getQtdStars();
-    	
-    	Thread.sleep(9000);
+    	hotelPageFilter.getQtdStars();    	
     	hotelPageFilter.getRoomValue();
-    	
-    	Thread.sleep(15000);
-    	hotelPageFilter.getSiteName();
-    	
-    	Thread.sleep(9000);
+    	hotelPageFilter.getSiteName();  	
     	hotelPageFilter.clickLocation();
-    	
-    	Thread.sleep(9000);
     	hotelPageFilter.clickComfort();
-    	
-    	Thread.sleep(9000);
     	hotelPageFilter.getroomAmenities();
-//    	String roomAmenities = getDriver().findElement(By.xpath("//section[@class='expaned']//div[2]")).getText();
-//    	System.out.println("Quarto" + roomAmenities);
+
     }
     
     

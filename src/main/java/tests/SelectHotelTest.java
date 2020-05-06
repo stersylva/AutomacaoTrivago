@@ -19,7 +19,7 @@ public class SelectHotelTest extends DriverFactory {
     }
 
     @Test
-    public void selectHotel() throws InterruptedException {
+    public void selectHotel() {
         KeepSearch.searchPleace();
         KeepSearch.searchBedroom();
        

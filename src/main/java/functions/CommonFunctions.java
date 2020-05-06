@@ -10,50 +10,51 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utils.BasePage;
+
 
 public class CommonFunctions {
     private WebDriver driver;
-
+    private WebDriverWait wait;
+    private BasePage basePage;
+    
     public CommonFunctions(WebDriver driver) {
+    	this.basePage = new BasePage();
         this.driver = driver;
+        this.wait = this.basePage.getWait();
+
     }
 
     public String getXpath(String xpathField) {
-    	WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+    	WebDriverWait wait = new WebDriverWait(getDriver(), 5000);
     	WebElement validateField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathField)));
     	return validateField.getAttribute("value");
     }
 
     public void writeInXpath(String xpath, String desc) {
-    	WebDriverWait wait = new WebDriverWait(driver, 60);
+    	wait = new WebDriverWait(driver, 5000);
     	WebElement writeField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     	writeField.sendKeys(desc);
     	writeField.sendKeys(Keys.ENTER);
     }
 
     public void buttonClick(String xpathButton) {
-    	WebDriverWait wait = new WebDriverWait(driver, 60);
-    	WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathButton)));
+    	wait = new WebDriverWait(driver, 5000);
+    	WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathButton)));
     	button.click();
     }
 
     public void orderDistance(String xpath, String desc) {
-    	
-    	WebElement element = driver.findElement(By.xpath(xpath));
+    	wait = new WebDriverWait(driver, 5000);
+    	WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
     	element.sendKeys(Keys.ENTER);
         Select combo = new Select(element);
         combo.selectByVisibleText(desc);
-    }
-    
-    public String getXpathSelect(String xpathSelect) {
-    	WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-    	WebElement validateField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathSelect)));
-    	return validateField.getAttribute("meta");
-    }
-    
+    }    
     
     public String getHotelName(String xpath) {
-		String name = getDriver().findElement(By.xpath(xpath)).getText();
+    	wait = new WebDriverWait(driver, 5000);
+    	String name = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText();
 		System.out.println("Nome do Hotel: " + name );
     	return name;
 	}
@@ -75,21 +76,26 @@ public class CommonFunctions {
     }
     
     public String getRoomValue(String xpath) {
-    	String value = getDriver().findElement(By.xpath(xpath)).getText();
+    	wait = new WebDriverWait(driver, 5000);
+    	String value = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText();
     	System.out.println("Valor:" + value);
     	return value;
     }
     
     public String getSiteName(String xpath) {
-    	String siteName = getDriver().findElement(By.xpath(xpath)).getText();
+    	wait = new WebDriverWait(driver, 5000);
+    	String siteName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText();
     	System.out.println("Site de oferta: " + siteName);
     	return siteName;
+
     }
     
     public String getroomAmenities(String xpath) {
-    	String roomAmenities = getDriver().findElement(By.xpath(xpath)).getText();
+    	wait = new WebDriverWait(driver, 5000);
+    	String roomAmenities = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText();
     	System.out.println("Conformidades do Quarto: " + roomAmenities);
     	return roomAmenities;
+    	
     }
 
 
