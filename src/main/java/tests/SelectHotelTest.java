@@ -1,6 +1,5 @@
 package tests;
 
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +19,9 @@ public class SelectHotelTest extends DriverFactory {
     }
 
     @Test
-    public void selectHotel() {
-        KeepSearch.searchHotel();
+    public void selectHotel() throws InterruptedException {
+        KeepSearch.searchPleace();
+        KeepSearch.searchBedroom();
+       
     }    
 }

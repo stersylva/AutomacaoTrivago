@@ -16,7 +16,7 @@ public class DriverFactory extends BasePage {
     }
 
     public void closePage() {
-        getDriver().close();
+        getDriver().quit();
     }
 
 }
