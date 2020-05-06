@@ -2,9 +2,6 @@ package actions;
 
 import functions.CommonFunctions;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
 import tests.SelectHotelTest;
 import tests.pages.HotelPageFilter;
 import tests.pages.HotelPageHomeFilter;
@@ -45,20 +42,20 @@ public class KeepSearch extends SelectHotelTest {
     	
     	Thread.sleep(9000);
     	hotelPageFilter.getRoomValue();
-
-//    	String valor = getDriver().findElement(By.xpath("//section[@id='js_item_list_section']//li[2]//article//section/div[2]/article/div/div[2]/div/div/div/strong")).getText();
-//    	System.out.println("Valor:" + valor);
     	
-    	/*
-    	 * localização
-    	 */
+    	Thread.sleep(15000);
+    	hotelPageFilter.getSiteName();
+    	
     	Thread.sleep(9000);
     	hotelPageFilter.clickLocation();
+    	
     	Thread.sleep(9000);
     	hotelPageFilter.clickComfort();
+    	
     	Thread.sleep(9000);
-    	String roomAmenities = getDriver().findElement(By.xpath("//section[@class='expaned']//div[2]")).getText();
-    	System.out.println("Quarto" + roomAmenities);
+    	hotelPageFilter.getroomAmenities();
+//    	String roomAmenities = getDriver().findElement(By.xpath("//section[@class='expaned']//div[2]")).getText();
+//    	System.out.println("Quarto" + roomAmenities);
     }
     
     

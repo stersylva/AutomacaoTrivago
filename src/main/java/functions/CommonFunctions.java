@@ -36,10 +36,6 @@ public class CommonFunctions {
     	WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathButton)));
     	button.click();
     }
-//    public void enter(String xpathField) {
-//    	WebDriverWait wait = new WebDriverWait(getDriver(), 60); 
-//    	driver.findElement(By.xpath(xpath)).sendKeys(Keys.ENTER);
-//    }
 
     public void orderDistance(String xpath, String desc) {
     	
@@ -82,6 +78,18 @@ public class CommonFunctions {
     	String value = getDriver().findElement(By.xpath(xpath)).getText();
     	System.out.println("Valor:" + value);
     	return value;
+    }
+    
+    public String getSiteName(String xpath) {
+    	String siteName = getDriver().findElement(By.xpath(xpath)).getText();
+    	System.out.println("Site de oferta: " + siteName);
+    	return siteName;
+    }
+    
+    public String getroomAmenities(String xpath) {
+    	String roomAmenities = getDriver().findElement(By.xpath(xpath)).getText();
+    	System.out.println("Conformidades do Quarto: " + roomAmenities);
+    	return roomAmenities;
     }
 
 

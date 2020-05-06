@@ -1,6 +1,5 @@
 package tests.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import functions.CommonFunctions;
 
@@ -34,11 +33,11 @@ public class HotelPageFilter {
 	}
 	
 	public void clickLocation() {
-		function.buttonClick("//article[@class='item bg-white item--clickedout']//div[@class='item__name item__name--link item__name--entire-place']//div[@class='location ov-hidden']");	
+		function.buttonClick("//li[2]//article/div[1]/div[2]/div/div/div[2]");	
 	}
 	
 	public void clickComfort() {
-		function.buttonClick("//article[@class='item bg-white item--clickedout']//article[1]//div[1]//div[1]//div[1]//button[1]");
+		function.buttonClick("//div[2]/div/section/div/article/div/div/div/button");
 	}
 	
 	public String getHotelName() {
@@ -51,5 +50,13 @@ public class HotelPageFilter {
 
 	public String getRoomValue() {
 		return function.getRoomValue("//section[@id='js_item_list_section']//li[2]//article//section/div[2]/article/div/div[2]/div/div/div/strong");
+	}
+	
+	public String getSiteName() {
+		return function.getSiteName("//li[2]//article/div[1]/div[2]/section/div[2]/article/div/div[2]/div/div/span");
+	}
+	
+	public String getroomAmenities() {
+		return function.getroomAmenities("//section[@class='expaned']//div[2]");
 	}
 }
